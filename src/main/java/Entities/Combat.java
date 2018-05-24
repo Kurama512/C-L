@@ -41,6 +41,7 @@ public class Combat {
 		Monstre monstre3 = new Monstre("Dragon Rouge", new Integer(1500), new Integer(1000), new Integer(100),
 				new Integer(10), new Integer(60), new Integer(50));
 
+		
 		lstMonster.add(monstre1);
 		lstMonster.add(monstre2);
 		lstMonster.add(monstre3);
