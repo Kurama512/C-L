@@ -13,11 +13,10 @@ public class Joueur {
 	private Integer initiative = 150;
 	private Integer defense = 150;
 	private Integer attaque = 150;
-//	private Armure armure;
-//	private ObjetDroit objDroit;
-//	private ObjetGauche objGauche;
+	private Armure armure;
+	private MainDroite mainDroite;
+	private MainGauche mainGauche;
 //	private List<Buff> listBuff;
-	
 	
 	public Joueur() 
 	{
