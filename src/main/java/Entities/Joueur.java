@@ -137,6 +137,7 @@ public class Joueur {
 	}
 
 	public void afficherEquipement() {
+		//test
 		System.out.println("Voici votre equipement");
 	}
 
