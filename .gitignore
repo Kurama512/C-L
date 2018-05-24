@@ -1,1 +1,6 @@
-/target
+target/
+.idea/.name
+.idea/misc.xml
+.idea/workspace.xml
+
+.classpath
