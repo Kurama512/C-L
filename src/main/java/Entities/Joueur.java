@@ -18,6 +18,7 @@ public class Joueur {
 	private MainDroite mainDroite;
 	private MainGauche mainGauche;
 	private List<Buff> listBuff;
+	//test
 	
 	
 	//CONSTRUCTEUR
