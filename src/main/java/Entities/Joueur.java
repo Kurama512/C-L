@@ -6,7 +6,7 @@ public class Joueur {
 	Scanner x = new Scanner(System.in);
 	
 	private String nom;
-	private Integer score;
+	private Integer score = 0;
 	private Integer pv = 150;
 	private Integer pvMax = 150;
 	private Integer esquive = 150;
