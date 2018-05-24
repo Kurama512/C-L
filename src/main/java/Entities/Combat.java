@@ -2,14 +2,17 @@ package Entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Combat {
-	private List<Monstre> lstMonster = new ArrayList();
+	private List<Monstre> lstMonster;
 	private Joueur joueur;
 	private Monstre monstre;
 
 	public Combat(Joueur joueur) {
 		this.joueur = joueur;
+		this.lstMonster= new ArrayList<Monstre>();
 		initialiserBestiaire();
 		choixMonstre();
 		
@@ -48,23 +51,38 @@ public class Combat {
 	}
 	
 	public void choixMonstre(){
-		int index = (int) (Math.random()*lstMonster.size());
+		Random random=new Random();
+		int index = random.nextInt(2);
 		setMonstre(lstMonster.get(index));
 		
 	}
 
-	/*public Integer lancerCombat(){
-		//si le retour et 0 le monstre gagne fin de partie
-		//si le retour et 1 le joueur est vainqueur 
+	public void combattre() {
+		System.out.println("un "+monstre.getNom()+" apparaît!");
+		do {
+		if(this.first()) {
+			//this.joueur.action();
+			System.out.println("action joueur");
+			this.monstre.setPv(0);
+		}else {
+			//this.monstre.action();
+			System.out.println("action monstre");
+			//this.joueur.action();
+			System.out.println("action joueur");
+			this.monstre.setPv(0);
+		}
 		
-		if(joueur.getPv() > 0 && monstre.getPv() > 0)
-			lancerCombat();
-		
-		if(monstre.getPv() < 0)
-			return 1;
-		else
-			return 0;
-		
-	}*/
+		}
+		while(this.joueur.getPv()>0 && this.monstre.getPv()>0);
+	}
+	
+	public boolean first() {
+		Integer first=this.joueur.getInitiative()-this.monstre.getInitiative()+50;
+		Random random=new Random();
+		if(random.nextInt(100)<first) {
+			return true;
+		}
+		return false;
+	}
 	
 }
