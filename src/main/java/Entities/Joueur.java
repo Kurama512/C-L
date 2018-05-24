@@ -29,31 +29,24 @@ public class Joueur {
 	}
 	
 	//Actualisation des stats
-	public void actualStat() {
+	public void actualStat() 
+	{
 		this.esquive=0+this.armure.getBonusEsq()+this.mainDroite.getBonusEsq()+this.mainGauche.getBonusEsq();
 		this.initiative=0+this.armure.getBonusIni()+this.mainDroite.getBonusIni()+this.mainGauche.getBonusIni();
 		this.defense=0+this.armure.getBonusDef()+this.mainDroite.getBonusDef()+this.mainGauche.getBonusDef();
 		this.attaque=0+this.armure.getBonusAtk()+this.mainDroite.getBonusAtk()+this.mainGauche.getBonusAtk();
-		if(this.listBuff.size()>0) {
-			for (Buff buff : listBuff) {
+		if(this.listBuff.size()>0) 
+		{
+			for (Buff buff : listBuff) 
+			{
 				this.initiative+=buff.getInitiative();
 				this.esquive+=buff.getEsquive();
 				this.defense+=buff.getDefense();
 				this.attaque+=buff.getAttaque();
 			}
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-
-		}
-=======
 	}
->>>>>>> develop
-=======
-	}
->>>>>>> develop
-
 	
 	
 	//GET SET
