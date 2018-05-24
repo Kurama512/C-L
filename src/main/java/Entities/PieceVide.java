@@ -14,7 +14,7 @@ public class PieceVide {
 	descriptions.add("Pas d'obstacle en vue...");
 	descriptions.add("A part un vieux clou rouillé, rien d'autre...");
 	
-	Integer index = (int) ((Math.random()*6)+1);
+	Integer index = (int) ((Math.random()*5)+1);
 	System.out.println(descriptions.get(index));
 	joueur.setScore(joueur.getScore()+10);
 	}
