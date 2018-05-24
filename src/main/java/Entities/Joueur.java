@@ -10,15 +10,14 @@ public class Joueur {
 	private Integer score = 0;
 	private Integer pv = 150;
 	private Integer pvMax = 150;
-	private Integer esquive = 150;
-	private Integer initiative = 150;
-	private Integer defense = 150;
-	private Integer attaque = 150;
+	private Integer esquive = 0;
+	private Integer initiative = 0;
+	private Integer defense = 0;
+	private Integer attaque = 0;
 	private Armure armure;
 	private MainDroite mainDroite;
 	private MainGauche mainGauche;
 	private List<Buff> listBuff;
-	
 	
 	//CONSTRUCTEUR
 	public Joueur() 
@@ -28,8 +27,6 @@ public class Joueur {
 		this.mainGauche = new MainGauche("Poing nue",0,0,0,0);		
 	}
 	
-	
-
 	//GET SET
 	public String getNom() {
 		return nom;
