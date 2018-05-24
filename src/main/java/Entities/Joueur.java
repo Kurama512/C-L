@@ -5,8 +5,24 @@ import java.util.Scanner;
 public class Joueur {
 	Scanner x = new Scanner(System.in);
 	
+	private String nom;
 	private Integer score;
 	private Integer pv = 150;
+	private Integer pvMax = 150;
+	private Integer esquive = 150;
+	private Integer initiative = 150;
+	private Integer defense = 150;
+	private Integer attaque = 150;
+//	private Armure armure;
+//	private ObjetDroit objDroit;
+//	private ObjetGauche objGauche;
+//	private List<Buff> listBuff;
+	
+	
+	public Joueur() 
+	{
+		
+	}
 
 	public Integer getPv() {
 		return pv;
