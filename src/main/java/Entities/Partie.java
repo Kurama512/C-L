@@ -7,16 +7,16 @@ public class Partie {
 	Scanner x = new Scanner(System.in);
 
 	public void lanceIntro() {
-		System.out.println("Ceci est l'intro... \nBienvenue dans 'Cachots & Lézards' \nVotre but est d'aller le plus loin possible pour amasser des points et exploser le score.");
+		System.out.println("Ceci est l'intro... \nBienvenue dans 'Cachots & Lï¿½zards' \nVotre but est d'aller le plus loin possible pour amasser des points et exploser le score.");
 	}
 
-	public void creeChoixPortes() {
+	public void creeChoixPortes(Joueur joueur) {
 		Integer portes = 3;	
-		System.out.println("Vous êtes face à "+portes+" portes. Laquelle voulez-vous emprunter ?");	
+		System.out.println("Vous ï¿½tes face ï¿½ "+portes+" portes. Laquelle voulez-vous emprunter ?");	
 		Integer cj = x.nextInt();
 		Integer de = (int) ((Math.random()*5)+1);
 		switch(de) {
-		case 1: System.out.println("une piece vide");break;
+		case 1: PieceVide pv=new PieceVide(); pv.generatePieceVide(joueur);break;
 		case 2: System.out.println("un tresor");break;
 		case 3: System.out.println("un monstre");break;
 		case 4: System.out.println("un mini jeu");break;
@@ -25,7 +25,7 @@ public class Partie {
 	}
 
 	public void finPartie() {
-		System.out.println("La partie est terminée");	
+		System.out.println("La partie est terminï¿½e");	
 	}
 
 }
