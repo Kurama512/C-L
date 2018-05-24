@@ -1,10 +1,7 @@
 package Entities;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 
 public class MiniJeu3Test {
@@ -13,28 +10,29 @@ public class MiniJeu3Test {
 	@Before
 	public void before() {
 		game3 = new MiniJeu3();
+		game3.setJustePrix(40);
+
 	}
 
 	@Test
 	public void testerPartiePerdue() {
-		game3.justePrix = 40;
 		assertEquals(game3.lancer(), false);
 	}
-	
+
 	@Test
 	public void testerPartieGagne() {
-		game3.justePrix = 40;
 		assertEquals(game3.lancer(), true);
 	}
-	
+
 	@Test
 	public void choixJoueursCorrect() {
-		game3.choixJoueur();
+		assertEquals(game3.choixCorrecte(40), true);
+
 	}
-	
+
 	@Test
 	public void choixJoueursInCorrect() {
-		game3.choixJoueur();
+		assertEquals(game3.choixCorrecte(555), false);
+		assertEquals(game3.choixCorrecte(-10), false);
 	}
-	
 }
