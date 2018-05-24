@@ -4,14 +4,6 @@ public class Armure extends Equipement {
 	
 	private String type;
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
 	public Armure(String nom, Integer bonusAtk, Integer bonusDef, Integer bonusIni, Integer bonusEsq, String type) {
 		super(nom, bonusAtk, bonusDef, bonusIni, bonusEsq);
 		this.type = "Armure";
@@ -20,11 +12,19 @@ public class Armure extends Equipement {
 	public Armure() {
 		super();
 	}
+	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	@Override
 	public String toString() {
 		return this.getNom() + " -  Attaque : "+ this.getBonusAtk()+", Défense : "+
-	this.getBonusDef()+", Esquive : "+ this.getBonusEsq() + ", type : "+ type;
+	this.getBonusDef()+", Esquive : "+ this.getBonusEsq() + ", type : "+ this.getType();
 	}
 
 	public Armure(String nom, Integer bonusAtk, Integer bonusDef, Integer bonusIni, Integer bonusEsq) {
