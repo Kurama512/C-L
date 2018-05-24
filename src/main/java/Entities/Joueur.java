@@ -46,7 +46,7 @@ public class Joueur {
 		for (Buff buff : listBuff) {
 			this.attaque+=buff.getAttaque();
 		}
-		}
+	}
 
 	
 	
