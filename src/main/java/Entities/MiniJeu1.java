@@ -8,12 +8,12 @@ public class MiniJeu1 {
 		
 		public static void main (String arg[]) {
 			
-			Integer tour = 0;
-			Integer j,i;
-			Integer posMecBouree;
-			Integer reste;
-			Integer[][] tab = new Integer[7][3];
-			Double dep;
+			int tour = 0;
+			int j,i;
+			int posMecBouree;
+			int reste;
+			int[][] tab = new int[7][3];
+			int dep;
 			System.out.println("marche bourée, vous devez l'aider à sortir du cachot, bonne chance !");
 			
 			i = 0; j = 1;
@@ -22,11 +22,11 @@ public class MiniJeu1 {
 			System.out.println("Entrez 0 pour aller vers le haut, on va y arriver");
 			Scanner sc = new Scanner(System.in);
 			try {
-			dep = (double) sc.nextInt();
+			dep =  sc.nextInt();
 			}catch (InputMismatchException e) {
 				
 			}
-			dep = Math.random() * 3 ;
+			dep = 0 ;
 			reste = tab.length - i;
 			
 			if (dep == 0){
