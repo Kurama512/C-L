@@ -43,9 +43,13 @@ public class Joueur {
 			}
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 		}
+=======
+	}
+>>>>>>> develop
 =======
 	}
 >>>>>>> develop
