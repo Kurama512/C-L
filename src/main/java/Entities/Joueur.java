@@ -27,6 +27,28 @@ public class Joueur {
 		this.mainGauche = new MainGauche("Poing nue",0,0,0,0);		
 	}
 	
+	//Actualisation des stats
+	public void actualStat() {
+		this.esquive=0+this.armure.getBonusEsq()+this.mainDroite.getBonusEsq()+this.mainGauche.getBonusEsq();
+		for (Buff buff : listBuff) {
+			this.esquive+=buff.getEsquive();
+		}
+		this.initiative=0+this.armure.getBonusIni()+this.mainDroite.getBonusIni()+this.mainGauche.getBonusIni();
+		for (Buff buff : listBuff) {
+			this.initiative+=buff.getInitiative();
+		}
+		this.defense=0+this.armure.getBonusDef()+this.mainDroite.getBonusDef()+this.mainGauche.getBonusDef();
+		for (Buff buff : listBuff) {
+			this.defense+=buff.getDefense();
+		}
+		this.attaque=0+this.armure.getBonusAtk()+this.mainDroite.getBonusAtk()+this.mainGauche.getBonusAtk();
+		for (Buff buff : listBuff) {
+			this.attaque+=buff.getAttaque();
+		}
+		}
+
+	
+	
 	//GET SET
 	public String getNom() {
 		return nom;
@@ -140,15 +162,14 @@ public class Joueur {
 	}
 
 	public void afficherStats() {
+		this.actualStat();
 		System.out.println("Voici vos statistiques " + getNom() + " : ");	
 		System.out.println("PV: " + getPv() +"/" + getPvMax());	
 		System.out.println("Attaque: " + getAttaque());
 		System.out.println("Defense: " + getDefense());
 		System.out.println("Esquive: " + getEsquive());
 		System.out.println("Initiative: " + getInitiative());
-		System.out.println("Armure: " + getArmure().getNom());
-		System.out.println("Main droite: " + getMainDroite().getNom());
-		System.out.println("Main gauche: " + getMainGauche().getNom());
+
 	}
 
 }
