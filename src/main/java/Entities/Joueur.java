@@ -142,7 +142,15 @@ public class Joueur {
 	}
 
 	public void afficherStats() {
-		System.out.println("Voici vos statistiques");	
+		System.out.println("Voici vos statistiques " + getNom() + " : ");	
+		System.out.println("PV: " + getPv() +"/" + getPvMax());	
+		System.out.println("Attaque: " + getAttaque());
+		System.out.println("Defense: " + getDefense());
+		System.out.println("Esquive: " + getEsquive());
+		System.out.println("Initiative: " + getInitiative());
+		System.out.println("Armure: " + getArmure().getNom());
+		System.out.println("Main droite: " + getMainDroite().getNom());
+		System.out.println("Main gauche: " + getMainGauche().getNom());
 	}
 
 }
