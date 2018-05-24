@@ -19,7 +19,7 @@ public class Partie {
 		case 1: PieceVide pv=new PieceVide(); pv.generatePieceVide(joueur);break;
 		case 2: System.out.println("un tresor");break;
 		case 3: Combat combat=new Combat(joueur); combat.combattre();break; 
-		case 4: MiniJeu mj = new MiniJeu(); Boolean win = mj.lauchMiniJeu(); if(!win){Combat combat2=new Combat(joueur); combat2.combattre();} break; 
+		case 4: MiniJeuTest mj = new MiniJeuTest(); Boolean win = mj.lauchMiniJeu(); if(!win){Combat combat2=new Combat(joueur); combat2.combattre();} break; 
 		case 5: Combat combat3=new Combat(joueur); combat3.combattre();break; 
 		}
 	}
