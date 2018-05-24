@@ -3,6 +3,8 @@ package Entities;
 public class MiniJeu {
 	
 	
+	
+	
 	public void lauchMiniJeu(Integer miniJeu){
 		System.out.println("Lancement du mini jeu N° "+miniJeu);
 		switch (miniJeu){
