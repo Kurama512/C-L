@@ -18,10 +18,90 @@ public class Joueur {
 	private MainGauche mainGauche;
 //	private List<Buff> listBuff;
 	
+	
+	//CONSTRUCTEUR
 	public Joueur() 
-	{
-		
+	{		
+		this.armure = new Armure("Pagne standart", 0, 0, 0, 1);
+		this.mainDroite = new MainDroite("Poing nue",0,0,0,0);
+		this.mainGauche = new MainGauche("Poing nue",0,0,0,0);		
 	}
+	
+	
+
+	//GET SET
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public Integer getPvMax() {
+		return pvMax;
+	}
+
+	public void setPvMax(Integer pvMax) {
+		this.pvMax = pvMax;
+	}
+
+	public Integer getEsquive() {
+		return esquive;
+	}
+
+	public void setEsquive(Integer esquive) {
+		this.esquive = esquive;
+	}
+
+	public Integer getInitiative() {
+		return initiative;
+	}
+
+	public void setInitiative(Integer initiative) {
+		this.initiative = initiative;
+	}
+
+	public Integer getDefense() {
+		return defense;
+	}
+
+	public void setDefense(Integer defense) {
+		this.defense = defense;
+	}
+
+	public Integer getAttaque() {
+		return attaque;
+	}
+
+	public void setAttaque(Integer attaque) {
+		this.attaque = attaque;
+	}
+
+	public Armure getArmure() {
+		return armure;
+	}
+
+	public void setArmure(Armure armure) {
+		this.armure = armure;
+	}
+
+	public MainDroite getMainDroite() {
+		return mainDroite;
+	}
+
+	public void setMainDroite(MainDroite mainDroite) {
+		this.mainDroite = mainDroite;
+	}
+
+	public MainGauche getMainGauche() {
+		return mainGauche;
+	}
+
+	public void setMainGauche(MainGauche mainGauche) {
+		this.mainGauche = mainGauche;
+	}
+
 
 	public Integer getPv() {
 		return pv;
@@ -39,6 +119,8 @@ public class Joueur {
 		this.score = score;
 	}
 
+	
+	//METHODES
 	public Integer menu1() {
 		Integer choix=0;
 		
