@@ -1,61 +1,66 @@
 package Entities;
 
-import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class MiniJeu1 {
-	
-		
-		public static void main (String arg[]) {
-			
-			int tour = 0;
-			int dep,j,i;
-			int posMecBouree;
-			int reste;
-			int[][] tab = new int[7][3];
-			
-			System.out.println("marche bourée, vous devez l'aider à sortir du cachot, bonne chance !");
-			
-			i = 0; j = 1;
-			do
-			{			
-			System.out.println("Entrez 0 pour aller vers le haut, on va y arriver");
-			Scanner sc = new Scanner(System.in);
+	public static String[][] initialisation() {
+		String[][] pont = new String[8][3];
+		for (int i = 0; i < pont.length; i++) {
+			for (int j = 0; j < pont[i].length; j++) {
+				pont[i][j] = " ";
+			}
+			pont[0][1] = "X";
+
+		}
+		return pont;
+	}
+
+	public static void main(String[] args) {
+
+		int direction, choix, i, j;
+
+		String[][] pont = initialisation();
+		String posJoueur = "X";
+		boolean surpont = true;
+		int posX = 1;
+		int posY = 0;
+
+		pont[posY][posX] = posJoueur;
+
+		Scanner s = new Scanner(System.in);
+		Random r = new Random();
+		while (surpont && posY < 7) {
 			try {
-			dep = sc.nextInt();
-			}catch (InputMismatchException e) {
-				
+				System.out.println("Choisir une direction: gauche-1,tout droit-2,droite-3 , position" + posY);
+				choix = s.nextInt();
+				direction = r.nextInt(3) - 1;
+				// on nettoie l'ancienne position
+				pont[posY][posX] = " ";
+				// on met en jour les coordonnées
+				posY++;
+				posX = posX + direction;
+				pont[posY][posX] = posJoueur;
+
+				for (i = 0; i < pont.length; i++) {
+					for (j = 0; j < pont[i].length; j++) {
+						System.out.print("|");
+						System.out.print(" ");
+						System.out.print(pont[i][j]);
+						System.out.print("|");
+					}
+					System.out.println();
+				}
+
+			} catch (ArrayIndexOutOfBoundsException e) {
+				System.out.println("tombe a l eau ");
+				surpont = false;
 			}
-			dep = (int) (Math.random() * 3 );
-			reste = tab.length - i;
-			
-			if (dep == 0){
-				posMecBouree=tab[i++][j];
-				reste = tab.length - i;
-				System.out.println("Oui ! il a été vers l'avant, plus que "+reste+" pas avant la sortie !");
-			}
-			else if (dep == 1){
-				posMecBouree=tab[i++][j--];
-				reste = tab.length - i;
-				System.out.println("Il a été vers l'avant mais à gauche, plus que "+reste+" pas avant la sortie !");
-			}
-			else if (dep == 2){
-				posMecBouree=tab[i++][j++];
-				reste = tab.length - i;
-				System.out.println("Il a été vers l'avant mais à droite, plus que "+reste+" pas avant la sortie !");
-			}
-			tour++;
-			}while (i<7 && j<3 && j>=0);
-			
-			if (i==7) {
-				System.out.println("Vous avez atteint la sortie en "+tour+" tours!");
-			}
-			else if( j>2){
-				System.out.println("Vous etes tombé sur la droite en "+tour+" tours!");
-			}
-			else if( j<=0){
-				System.out.println("Vous etes tombé sur la gauche en "+tour+" tours!");
-			}
+
 		}
 
+		if (surpont)
+			System.out.println("vous etes passé");
+
 	}
+}
