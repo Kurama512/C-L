@@ -42,9 +42,13 @@ public class Joueur {
 				this.attaque+=buff.getAttaque();
 			}
 		}
+<<<<<<< HEAD
 
 
 		}
+=======
+	}
+>>>>>>> develop
 
 	
 	
