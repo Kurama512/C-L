@@ -1,5 +1,6 @@
 package Entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class Joueur {
 	private Armure armure;
 	private MainDroite mainDroite;
 	private MainGauche mainGauche;
-	private List<Buff> listBuff;
+	private List<Buff> listBuff=new ArrayList<Buff>();
 	
 	//CONSTRUCTEUR
 	public Joueur() 
