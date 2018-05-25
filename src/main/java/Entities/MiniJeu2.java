@@ -20,7 +20,6 @@ package Entities;
 	         int scoreJ=0;
 	         int scoreO=0;
 	         Random r=new Random();
-	         Scanner s=new Scanner(System.in);
 	         Boolean find;
 	         
 	         //--------------------------------------------------------JEU-----------------------------------------------------//
@@ -33,11 +32,17 @@ package Entities;
 	         //-----------------CHOIX DU JOUEUR--------------------//
 	         
 	         do{
-	                 System.out.println("Fait ton choix : 0=Pierre, 1=Feuille, 2=Ciseaux");
-	                 choixJ=s.nextInt();
-	                 if(choixJ>=3){
-	   System.out.println("Mauvaise saisie,tu sais compté jusqu'à 2 ou quoi??!!!");
-	                 }
+	        	 	Scanner scan = new Scanner(System.in);
+	                try {
+	                	System.out.println("Fait ton choix : 0=Pierre, 1=Feuille, 2=Ciseaux");
+	                	choixJ=scan.nextInt();
+	                	if(choixJ>=3)
+	                	{
+	                		System.out.println("Mauvaise saisie,tu sais compté jusqu'à 2 ou quoi??!!!");
+	                	}						
+					} catch (Exception e) {
+						choixJ = 4;
+					} 
 	         }while(choixJ!=0 && choixJ!=1 && choixJ!=2);
 	         
 	         //-----------------CHOIX DE L'ORDI--------------------//
