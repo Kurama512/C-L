@@ -37,14 +37,13 @@ public class MiniJeu3 {
 				System.out.println("Votre ambition est trop petite, revoyez la a la hausse");
 			}
 			essaie--;
-			System.out.println("Il vous reste "+ essaie);
+			System.out.println("Il vous reste "+ essaie + "essaie(s)");
 
 		}
 		if (find) {
 			System.out.println("Victoire !!!!!!!!!!!!!!!!!");
 		} else {
 			System.out.println("La bonne combinaison etait : "+justePrix);
-
 			System.out.println("Un monstre veut vous ajouter à son menu, bonne chance");
 		}
 		return find;
