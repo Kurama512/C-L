@@ -81,14 +81,12 @@ public class Combat {
 		if(joueur.getPv() <= 0)
 		{
 			System.out.println("Le heros est tombé.");
-			win = false;
-			
+			win = false;			
 		}
 		else
 		{
 			System.out.println("Combat remporté !");
-			win = true;
-			
+			win = true;			
 		} return win;
 	}
 	
