@@ -8,15 +8,18 @@ public class Tresor {
 	List<Buff> lstBuff;
 	List<Equipement> lstEquipement;
 	List<Integer> lstArgent;
+	Random ran ;
 	Integer maxArgent;
 	Integer maxBonus;
 
 
 	public Tresor() {
-		lstBuff = new ArrayList();
-		lstEquipement = new ArrayList();
-		lstArgent = new ArrayList();
+		lstBuff = new ArrayList<Buff>();
+		lstEquipement = new ArrayList<Equipement>();
+		lstArgent = new ArrayList<Integer>();
 		maxArgent = 1000;
+
+		this.ran = new Random();
 	}
 
 	public void ajouterCoffreArgent(Integer argent) {
@@ -32,7 +35,6 @@ public class Tresor {
 	}
 
 	public void initializeArgent(Integer nbCoffreArgent) {
-		Random ran = new Random();
 		for (int i = 0; i < nbCoffreArgent; i++) {
 			lstArgent.add(ran.nextInt(maxArgent));
 
@@ -41,18 +43,38 @@ public class Tresor {
 	}
 
 	public void ouvrirCoffre(Joueur joueur) {
-		Random ran = new Random();
-		initializeArgent(100);
-		Integer choix = 3;
-		switch (choix) {
-		case 3:
-			Integer argent = lstArgent.get(ran.nextInt(lstArgent.size()));
-			joueur.setScore(argent + joueur.getScore());
-			System.out.println("vous avez gagne "+argent+" pieces d'or");
-			break;
-		}
+		Integer choix = ran.nextInt(3) + 1;
+		
+		ouvrirTypeCoffre(choix, joueur);
+		
+		
 
 	}
+	public void ouvrirTypeCoffre(Integer choix, Joueur joueur){
+		switch (choix) {
+		case 1:
+			initializeBuff();
+			Buff buff = lstBuff.get(ran.nextInt(lstBuff.size()));
+			System.out.println("Vos caracteristiques avant le buff");
+			joueur.afficherStats();
+			joueur.addBuff(buff);	
+			System.out.println("Vos caracteristiques apres le buff");
+			joueur.afficherStats();
+			break;
+		
+		case 2:
+			initializeArgent(100);
+			Integer argent = lstArgent.get(ran.nextInt(lstArgent.size()));
+			joueur.setScore(argent + joueur.getScore());
+			System.out.println("Vous avez acquis "+argent+" piéces d'or");
+		case 3:	
+			initializeEquipement();
+			break;
+		}
+	}
+	
+	
+	
 
 	private void initializeEquipement() {
 		// TODO Auto-generated method stub
@@ -60,8 +82,11 @@ public class Tresor {
 	}
 
 	private void initializeBuff() {
-		// TODO Auto-generated method stub
-
+		ajouterCoffreBuff( new Buff("Anneau de vie", 25,50, 0,0,0,0));
+		ajouterCoffreBuff( new Buff("Anneau d'attaque", 0,0, 0,10,10,10));
+		ajouterCoffreBuff( new Buff("gain positif aléatoire", ran.nextInt(10),ran.nextInt(10), ran.nextInt(10),ran.nextInt(10),ran.nextInt(10),ran.nextInt(10)));
+		ajouterCoffreBuff( new Buff("Malediction", ran.nextInt(10) * -1,ran.nextInt(10)*-1, ran.nextInt(10)*-1,ran.nextInt(10)*-1,ran.nextInt(10)*-1,ran.nextInt(10)*-1));
+	
 	}
 
 }

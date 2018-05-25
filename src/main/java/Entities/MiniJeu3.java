@@ -1,5 +1,6 @@
 package Entities;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class MiniJeu3 {
@@ -9,12 +10,14 @@ public class MiniJeu3 {
 	private Integer justePrix;
 	private Integer choix;
 	private Boolean find;
+	private Random ran;
 
 	public MiniJeu3() {
 		this.min = 0;
 		this.max = 100;
 		this.essaie = 8;
-		this.justePrix = new Integer((int) (Math.random() * (max + 1 - min) + max));
+		ran = new Random();
+		this.justePrix = ran.nextInt(max);
 		find = false;
 	}
 
@@ -37,7 +40,7 @@ public class MiniJeu3 {
 
 		}
 		if (find) {
-			System.out.println("Vous avez gagné");
+			System.out.println("Vous avez gagnï¿½");
 		} else {
 			System.out.println("Vous avez perdu");
 		}
