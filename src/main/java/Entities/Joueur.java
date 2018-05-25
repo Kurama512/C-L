@@ -35,10 +35,12 @@ public class Joueur {
 		this.initiative=0+this.armure.getBonusIni()+this.mainDroite.getBonusIni()+this.mainGauche.getBonusIni();
 		this.defense=0+this.armure.getBonusDef()+this.mainDroite.getBonusDef()+this.mainGauche.getBonusDef();
 		this.attaque=0+this.armure.getBonusAtk()+this.mainDroite.getBonusAtk()+this.mainGauche.getBonusAtk();
+		this.pvMax=150;
 		if(this.listBuff.size()>0) 
 		{
 			for (Buff buff : listBuff) 
 			{
+				this.pvMax+=buff.getPvMax();
 				this.initiative+=buff.getInitiative();
 				this.esquive+=buff.getEsquive();
 				this.defense+=buff.getDefense();
@@ -48,7 +50,9 @@ public class Joueur {
 
 	}
 	
-	
+	public void addBuff(Buff buff) {
+		this.listBuff.add(buff);
+	}
 	//GET SET
 	public String getNom() {
 		return nom;

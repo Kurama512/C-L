@@ -62,6 +62,7 @@ public class Combat {
 		do {
 		if(this.first()) {
 			//this.joueur.action();
+			//this.monstre.action();
 			System.out.println("action joueur");
 			this.monstre.setPv(0);
 		}else {
