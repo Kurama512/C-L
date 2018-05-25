@@ -22,7 +22,7 @@ public class Main {
 			Integer choix = joueur.menu1();
 			switch (choix) {
 			case 1:
-				partie.creeChoixPortes();
+				partie.creeChoixPortes(joueur);
 				break;
 			case 2:
 				joueur.afficherEquipement();
