@@ -9,7 +9,7 @@ package Entities;
 	  */
 	 public class MiniJeu2 {
 	     
-	     public void lancerMiniJeu2() {
+	     public Boolean lancerMiniJeu2() {
 	         //-------------VARIABLES-------------//
 	         String[] tab = {"Pierre", "Feuille", "Ciseaux"};
 	         String[] ordiGagne = {"T'es vraiment mauvais!!!","Alala la quiche!!!","Meme ma mere est meilleur que toi!!!"};
@@ -21,7 +21,7 @@ package Entities;
 	         int scoreO=0;
 	         Random r=new Random();
 	         Scanner s=new Scanner(System.in);
-	         boolean find;
+	         Boolean find;
 	         
 	         //--------------------------------------------------------JEU-----------------------------------------------------//
 	         
@@ -82,6 +82,7 @@ package Entities;
 	                 System.out.println("Tu as gagné le match!!!!!!NOOOOOOOOOOOOOOONNNNNNNNN!!!!");
 	                 find=true;
 	             }
+			return find;
 	         }
 	     }
 	        
