@@ -16,6 +16,7 @@ public class MiniJeu3 {
 		this.min = 0;
 		this.max = 100;
 		this.essai = 8;
+		find = false;
 		ran = new Random();
 		this.justePrix = ran.nextInt(max);
 	}
