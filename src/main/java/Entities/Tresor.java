@@ -57,6 +57,7 @@ public class Tresor {
 			Integer argent = lstArgent.get(ran.nextInt(lstArgent.size()));
 			joueur.setScore(argent + joueur.getScore());
 			System.out.println("Vous avez acquis " + argent + " piéces d'or");
+			break;
 		case 3:
 			initializeEquipement();
 			Equipement equipement = lstEquipement.get(ran.nextInt(lstEquipement.size()));
