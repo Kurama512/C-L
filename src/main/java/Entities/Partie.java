@@ -12,7 +12,7 @@ public class Partie {
 
 	public void creeChoixPortes(Joueur joueur) {
 		Integer cj=0;
-		Integer portes = (int) ((Math.random()*3)+1);
+		Integer portes = (int) ((Math.random()*3)+2);
 		do {
 			try {
 				System.out.println("Vous etes face a " + portes + " portes. Laquelle voulez-vous emprunter ?");

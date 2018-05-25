@@ -48,6 +48,7 @@ public class Tresor {
 		case 3:
 			Integer argent = lstArgent.get(ran.nextInt(lstArgent.size()));
 			joueur.setScore(argent + joueur.getScore());
+			System.out.println("vous avez gagne "+argent+" pieces d'or");
 			break;
 		}
 
