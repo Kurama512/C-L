@@ -33,7 +33,7 @@ public class Partie {
 				}
 			} 
 		} while (cj<1 || cj>portes);
-		Integer de = (int) ((Math.random()*7)+1);
+		Integer de = (int) ((Math.random()*8)+1);
 		switch(de) {
 		case 1: this.lancePieceVide(joueur);break;
 		case 2: this.lanceTresor(joueur);break;
@@ -42,7 +42,9 @@ public class Partie {
 		case 5: this.lanceCombat(joueur);break;
 		case 6: this.lanceMiniJeu(joueur);break; 
 		case 7: this.lanceCombat(joueur);break;
+		case 8: this.lanceMiniJeu(joueur);break; 
 		default: this.lanceCombat(joueur);break;
+		
 		}
 	}
 	
