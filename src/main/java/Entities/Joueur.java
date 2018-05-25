@@ -187,6 +187,7 @@ public class Joueur {
 			System.out.println(buff.toString());
 		}
 		System.out.println("------------------------------------------------");
+		System.out.println("Richesses accumulées= "+this.score);
 	}
 
 }
