@@ -26,9 +26,7 @@ public class Combat {
 
 	public void setJoueur(Joueur joueur) {
 		this.joueur = joueur;
-	}
-	
-	
+	}	
 
 	public Monstre getMonstre() {
 		return monstre;
@@ -39,12 +37,9 @@ public class Combat {
 	}
 
 	public void initialiserBestiaire() {
-		Monstre monstre1 = new Monstre("Lutin", new Integer(10), new Integer(100), new Integer(10), new Integer(1),
-				new Integer(6), new Integer(5));
-		Monstre monstre2 = new Monstre("Orc", new Integer(150), new Integer(100), new Integer(10), new Integer(1),
-				new Integer(6), new Integer(5));
-		Monstre monstre3 = new Monstre("Dragon Rouge", new Integer(1500), new Integer(1000), new Integer(100),
-				new Integer(10), new Integer(60), new Integer(50));
+		Monstre monstre1 = new Monstre("Lutin",10, 100, 10, 1, 6, 5);
+		Monstre monstre2 = new Monstre("Orc", 150, 100, 10, 1,6,5);
+		Monstre monstre3 = new Monstre("Dragon Rouge", 1500, 1000, 100, 10, 60, 50);
 
 		lstMonster.add(monstre1);
 		lstMonster.add(monstre2);
@@ -59,19 +54,17 @@ public class Combat {
 		
 	}
 
-	public void combattre() {
+	public boolean combattre() {
 		System.out.println("un "+monstre.getNom()+" apparaît!");
 		do {
 		if(this.first()) {
 			actionJoueur();
-			this.monstre.setPv(0);
 			if(monstre.getPv() > 0)
 			{
 				actionMonstre();				
 			}
 		}else {
 			actionMonstre();
-			this.joueur.setPv(0);
 			if(joueur.getPv() > 0)
 			{
 				actionJoueur();				
@@ -84,27 +77,15 @@ public class Combat {
 		if(joueur.getPv() <= 0)
 		{
 			System.out.println("Le heros est tombé.");
+			return false;
 		}
 		else
 		{
 			System.out.println("Combat remporté: lancer recompense");
+			return true;
 		}
 	}
 	
-	public void actionJoueur()
-	{
-		Integer choix = choixActionJoueur();
-		
-		switch (choix) {
-		case 1:	System.out.println("Le heros inflige des degats si le monstre n'esquive pas");break;
-		case 2:	System.out.println("Le heros se defend");break;
-		default: 
-			System.out.println("le heros ne sait pas quoi faire");
-			actionJoueur();		
-		;break;
-		}
-	}
-
 	private Integer choixActionJoueur() {
 		Scanner scan = new Scanner(System.in);
 		Integer choix;		
@@ -123,18 +104,105 @@ public class Combat {
 		return choix;
 	}
 	
+	public void actionJoueur()
+	{
+		Integer choix = choixActionJoueur();
+		
+		switch (choix) {
+		case 1:
+			if(!testEsquiveMonstre())
+			{
+				int degats = calculDegats(joueur);
+				System.out.println("le Heros inflige " + degats + " degats !");
+				monstre.setPv(monstre.getPv() - degats);
+			}else
+			{
+				System.out.println("Le monstre esquive !");
+			}
+			break;
+		case 2:	
+			System.out.println("Le heros se defend");
+			break;
+		default: 
+			System.out.println("Le heros ne sait pas quoi faire");
+			actionJoueur();		
+		;break;
+		}
+	}
+
+	
 	public void actionMonstre()
 	{
 		Random rand = new Random();
 		Integer choix = rand.nextInt(2);
 		
 		switch (choix) {
-		case 0:	System.out.println("le monstre inflige des degats si le heros n'esquive pas");break;
-		case 1:	System.out.println("le monstre se defend");break;
+		case 0:	
+			System.out.println("Le monstre attaque !");
+			if(!testEsquiveJoueur())
+			{
+				int degats = calculDegats(monstre);
+				System.out.println("le monstre inflige " + degats + " degats !");
+				joueur.setPv(joueur.getPv() - degats);
+			}else
+			{
+				System.out.println("Le heros esquive !!!");
+			}
+			break;
+		case 1:	
+			System.out.println("le monstre se defend");
+			break;
 		default: 
 			System.out.println("Erreur de random sur le monstre");
 			;break;
 		}
+	}
+	
+	public int calculDegats(Object attaquant)
+	{
+		Random rand = new Random();
+		Integer degats = 0;
+		if(attaquant.equals(joueur))//SI L'ATTAQUANT EST LE JOUEUR
+		{
+			degats = joueur.getAttaque() - monstre.getDefense() + rand.nextInt(11);
+			if(degats <0)
+			{
+				degats = 0;
+			}
+			return degats;
+		}else if(attaquant.equals(monstre))//SI L'ATTAQUANT EST LE MONSTRE
+		{			
+			degats = monstre.getAttaque() - joueur.getDefense() + rand.nextInt(11);
+			if(degats <0)
+			{
+				degats = 0;
+			}
+			return degats;
+		}else
+		{
+			System.out.println("ATTENTION CALCUL DEGATS NE DOIT PRENDRE EN COMPTE QU'UN JOUEUR OU UN MONSTRE");
+			return 0;
+		}
+			
+	}
+	
+	public boolean testEsquiveJoueur()
+	{
+		Random rand = new Random();
+		if(rand.nextInt(101)<=joueur.getEsquive())
+		{
+			return true;
+		}
+		return false;
+	}
+	public boolean testEsquiveMonstre()
+	{
+		Random rand = new Random();
+		if(rand.nextInt(101)<=monstre.getEsquive())
+		{
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean first() {
