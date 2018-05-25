@@ -39,17 +39,21 @@ public class Combat {
 	public void initialiserBestiaire() {
 		Monstre monstre1 = new Monstre("Lutin mourant",10, 100, 10, 1, 6, 5);
 		Monstre monstre2 = new Monstre("Orc", 150, 150, 10, 1,6,5);
-		Monstre monstre3 = new Monstre("Dragon Rouge", 1500, 1500, 100, 10, 60, 50);
+		Monstre monstre3 = new Monstre("Lezard flamboyant",59,59,8,7,12,15);
+		Monstre monstre4 = new Monstre("Chauve souris vampirique",132,132,18,25,2,25);
+		Monstre monstre5 = new Monstre("Dragon Rouge", 1500, 1500, 100, 10, 60, 50);
 
 		lstMonster.add(monstre1);
 		lstMonster.add(monstre2);
 		lstMonster.add(monstre3);
+		lstMonster.add(monstre4);
+		lstMonster.add(monstre5);
 
 	}
 	
 	public void choixMonstre(){
 		Random random=new Random();
-		int index = random.nextInt(3);
+		int index = random.nextInt(5);
 		setMonstre(lstMonster.get(index));
 		
 	}
