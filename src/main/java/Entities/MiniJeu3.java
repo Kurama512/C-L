@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class MiniJeu3 {
 	private Integer min;
 	private Integer max;
-	private Integer essaie;
+	private Integer essai;
 	private Integer justePrix;
 	private Integer choix;
 	private Boolean find;
@@ -15,14 +15,14 @@ public class MiniJeu3 {
 	public MiniJeu3() {
 		this.min = 0;
 		this.max = 100;
-		this.essaie = 8;
+		this.essai = 8;
 		ran = new Random();
 		this.justePrix = ran.nextInt(max);
 		find = false;
 	}
 
 	public boolean lancer() {
-		while (!find && essaie > 0) {
+		while (!find && essai > 0) {
 			choix = choixJoueur();
 
 			if (choix.equals(justePrix)) {
@@ -36,15 +36,14 @@ public class MiniJeu3 {
 			if (choix < justePrix) {
 				System.out.println("Votre ambition est trop petite, revoyez la a la hausse");
 			}
-			essaie--;
-			System.out.println("Il vous reste "+ essaie);
+			essai--;
+			System.out.println("Il vous reste "+ essai + "essai(s)");
 
 		}
 		if (find) {
 			System.out.println("Victoire !!!!!!!!!!!!!!!!!");
 		} else {
 			System.out.println("La bonne combinaison etait : "+justePrix);
-
 			System.out.println("Un monstre veut vous ajouter à son menu, bonne chance");
 		}
 		return find;
@@ -90,12 +89,12 @@ public class MiniJeu3 {
 		this.max = max;
 	}
 
-	public Integer getEssaie() {
-		return essaie;
+	public Integer getEssai() {
+		return essai;
 	}
 
-	public void setEssaie(Integer essaie) {
-		this.essaie = essaie;
+	public void setEssai(Integer essai) {
+		this.essai = essai;
 	}
 
 	public Integer getJustePrix() {

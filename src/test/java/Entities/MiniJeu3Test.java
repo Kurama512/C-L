@@ -10,7 +10,6 @@ public class MiniJeu3Test {
 	@Before
 	public void before() {
 		game3 = new MiniJeu3();
-		game3.setJustePrix(40);
 
 	}
 
