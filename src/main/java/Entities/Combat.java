@@ -54,7 +54,8 @@ public class Combat {
 		
 	}
 
-	public boolean combattre() {
+	//
+	public Boolean combattre() {
 		System.out.println("un "+monstre.getNom()+" apparaît!");
 		do {
 		if(this.first()) {
@@ -70,7 +71,7 @@ public class Combat {
 				actionJoueur();				
 			}
 		}
-		
+		System.out.println("-----------------------------------------------------------------------------");
 		}
 		while(this.joueur.getPv()>0 && this.monstre.getPv()>0);
 		
