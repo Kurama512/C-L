@@ -16,7 +16,7 @@ public class MiniJeu1 {
 		return pont;
 	}
 
-	public static void main(String[] args) {
+	public static Boolean lancer() {
 		
 		boolean find;
 		int direction, choix, i, j;
@@ -38,7 +38,7 @@ public class MiniJeu1 {
 				direction = r.nextInt(3) - 1;
 				// on nettoie l'ancienne position
 				pont[posY][posX] = " ";
-				// on met en jour les coordonnées
+				// on met en jour les coordonnï¿½es
 				posY++;
 				posX = posX + direction;
 				pont[posY][posX] = posJoueur;
@@ -56,13 +56,17 @@ public class MiniJeu1 {
 			} catch (ArrayIndexOutOfBoundsException e) {
 				System.out.println("tombe a l eau ");
 				surpont = false;
-				find=false;
+				return false;
 			}
 
 		}
 
-		if (surpont)
-			System.out.println("vous etes passé");
-			find=true;
+		if (surpont){
+			System.out.println("vous etes passï¿½");
+			return true;
+		}
+		else{
+		return false;
+		}
 	}
 }
