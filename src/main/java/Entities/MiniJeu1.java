@@ -16,7 +16,7 @@ public class MiniJeu1 {
 		return pont;
 	}
 
-	public static Boolean lancer() {
+	public Boolean lancer() {
 		
 		boolean find;
 		int direction, choix, i, j;

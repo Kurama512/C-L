@@ -34,7 +34,6 @@ public class Partie {
 			} 
 		} while (cj<1 || cj>portes);
 		Integer de = (int) ((Math.random()*7)+1);
-		System.out.println(de);
 		switch(de) {
 		case 1: this.lancePieceVide(joueur);break;
 		case 2: this.lanceTresor(joueur);break;
