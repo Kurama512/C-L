@@ -30,19 +30,22 @@ public class MiniJeu3 {
 			}
 
 			if (choix > justePrix) {
-				System.out.println("Plus petit");
+				System.out.println("Ce que vous recherchez est bien plus petit");
 			}
 
 			if (choix < justePrix) {
-				System.out.println("Plus grand");
+				System.out.println("Votre ambition est trop petite, revoyez la a la hausse");
 			}
 			essaie--;
+			System.out.println("Il vous reste "+ essaie);
 
 		}
 		if (find) {
-			System.out.println("Vous avez gagn�");
+			System.out.println("Victoire !!!!!!!!!!!!!!!!!");
 		} else {
-			System.out.println("Vous avez perdu");
+			System.out.println("La bonne combinaison etait : "+justePrix);
+
+			System.out.println("Un monstre veut vous ajouter à son menu, bonne chance");
 		}
 		return find;
 
@@ -51,8 +54,13 @@ public class MiniJeu3 {
 	public Integer choixJoueur() {
 		System.out.println("Choisissez un nombre entre " + min + " et " + max);
 		Scanner choixClavier = new Scanner(System.in);
-		choix = new Integer(choixClavier.nextInt());
-
+		try {
+			choix = choixClavier.nextInt();
+		} catch (Exception e) {
+			System.out.println("c'est un chiffre qui est attendu");
+			return choixJoueur();
+		}
+		
 		if (!choixCorrecte(choix)) {
 			System.out.println("Votre nombre " + choix + " n'est pas dans l'interval requis");
 			return choixJoueur();
