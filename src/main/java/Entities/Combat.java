@@ -6,6 +6,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Combat {
+	Scanner scan = new Scanner(System.in);
+	
 	private List<Monstre> lstMonster;
 	private Joueur joueur;
 	private Monstre monstre;
@@ -61,26 +63,84 @@ public class Combat {
 		System.out.println("un "+monstre.getNom()+" apparaît!");
 		do {
 		if(this.first()) {
-			//this.joueur.action();
-			//this.monstre.action();
-			System.out.println("action joueur");
+			actionJoueur();
 			this.monstre.setPv(0);
+			if(monstre.getPv() > 0)
+			{
+				actionMonstre();				
+			}
 		}else {
-			//this.monstre.action();
-			System.out.println("action monstre");
-			//this.joueur.action();
-			System.out.println("action joueur");
-			this.monstre.setPv(0);
+			actionMonstre();
+			this.joueur.setPv(0);
+			if(joueur.getPv() > 0)
+			{
+				actionJoueur();				
+			}
 		}
 		
 		}
 		while(this.joueur.getPv()>0 && this.monstre.getPv()>0);
+		
+		if(joueur.getPv() <= 0)
+		{
+			System.out.println("Le heros est tombé.");
+		}
+		else
+		{
+			System.out.println("Combat remporté: lancer recompense");
+		}
+	}
+	
+	public void actionJoueur()
+	{
+		Integer choix = choixActionJoueur();
+		
+		switch (choix) {
+		case 1:	System.out.println("Le heros inflige des degats si le monstre n'esquive pas");break;
+		case 2:	System.out.println("Le heros se defend");break;
+		default: 
+			System.out.println("le heros ne sait pas quoi faire");
+			actionJoueur();		
+		;break;
+		}
+	}
+
+	private Integer choixActionJoueur() {
+		Scanner scan = new Scanner(System.in);
+		Integer choix;		
+		try {
+			do {			
+				System.out.println("Choisissez une action: ");
+				System.out.println("1 - Attaquer ");
+				System.out.println("2 - Se defendre ");
+				choix = scan.nextInt();
+			} while (choix<=0||choix>2);			
+		} 
+		catch (Exception e) 
+		{
+			choix = 0;
+		}
+		return choix;
+	}
+	
+	public void actionMonstre()
+	{
+		Random rand = new Random();
+		Integer choix = rand.nextInt(2);
+		
+		switch (choix) {
+		case 0:	System.out.println("le monstre inflige des degats si le heros n'esquive pas");break;
+		case 1:	System.out.println("le monstre se defend");break;
+		default: 
+			System.out.println("Erreur de random sur le monstre");
+			;break;
+		}
 	}
 	
 	public boolean first() {
 		Integer first=this.joueur.getInitiative()-this.monstre.getInitiative()+50;
 		Random random=new Random();
-		if(random.nextInt(100)<first) {
+		if(random.nextInt(101)<first) {
 			return true;
 		}
 		return false;
