@@ -38,15 +38,45 @@ public class Partie {
 		Integer de = (int) ((Math.random()*7)+1);
 		System.out.println(de);
 		switch(de) {
-		case 1: PieceVide pv=new PieceVide(); pv.generatePieceVide(joueur);break;
-		case 2: Tresor tresor=new Tresor(); tresor.ouvrirCoffre(joueur);break;
-		case 3: Combat combat=new Combat(joueur); Boolean win3 = combat.combattre();if(win3){Tresor tresor2=new Tresor(); tresor2.ouvrirTypeCoffre(2,joueur);}break; 
-		case 4: MiniJeu mj = new MiniJeu(); Boolean win = mj.lauchMiniJeu(); if(!win){Combat combat2=new Combat(joueur); combat2.combattre();}else{Tresor tresor2=new Tresor(); tresor2.ouvrirTypeCoffre(2,joueur);} break; 
-		case 5: Combat combat2=new Combat(joueur); Boolean win4 = combat2.combattre();if(win4){Tresor tresor2=new Tresor(); tresor2.ouvrirTypeCoffre(2,joueur);}break; 
-		case 6: MiniJeu mj2 = new MiniJeu(); Boolean win2 = mj2.lauchMiniJeu(); if(!win2){Combat combat4=new Combat(joueur); combat4.combattre();}else{Tresor tresor2=new Tresor(); tresor2.ouvrirTypeCoffre(2,joueur);} break;
-		case 7: Combat combat3=new Combat(joueur); Boolean win5 = combat3.combattre();if(win5){Tresor tresor2=new Tresor(); tresor2.ouvrirTypeCoffre(2,joueur);}break;
-		default: Combat combat4=new Combat(joueur); Boolean win6 = combat4.combattre();if(win6){Tresor tresor2=new Tresor(); tresor2.ouvrirTypeCoffre(2,joueur);}break;
+		case 1: this.lancePieceVide(joueur);break;
+		case 2: this.lanceTresor(joueur);break;
+		case 3: this.lanceCombat(joueur);break; 
+		case 4: this.lanceMiniJeu(joueur);break; 
+		case 5: this.lanceCombat(joueur);break;
+		case 6: this.lanceMiniJeu(joueur);break; 
+		case 7: this.lanceCombat(joueur);break;
+		default: this.lanceCombat(joueur);break;
 		}
+	}
+	
+	public void lancePieceVide(Joueur joueur){
+		PieceVide pv=new PieceVide(); 
+		pv.generatePieceVide(joueur);
+	}
+	
+	public void lanceTresor(Joueur joueur){
+		Tresor tresor=new Tresor(); 
+		tresor.ouvrirCoffre(joueur);
+	}
+	
+	public void lanceMiniJeu(Joueur joueur){
+		MiniJeu mj = new MiniJeu();
+		Boolean win = mj.lauchMiniJeu();
+		if(!win){
+			Combat combat=new Combat(joueur);
+			combat.combattre();
+			}else{
+				Tresor tresor=new Tresor();
+				tresor.ouvrirTypeCoffre(2,joueur);}
+	}
+	
+	public void lanceCombat(Joueur joueur){
+		Combat combat=new Combat(joueur);
+		Boolean win = combat.combattre();
+		if(win){
+			Tresor tresor=new Tresor();
+			tresor.ouvrirTypeCoffre(2,joueur);
+			}
 	}
 
 	public void finPartie() {
