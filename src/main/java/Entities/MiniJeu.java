@@ -13,7 +13,7 @@ public class MiniJeu {
 		case 1 : 
 			System.out.println("Un homme encapuchonné se trouve au centre de la pièce. \nD'une voix d'outre-tombe, il vous convie à une partie de... \npierre-papier-ciseaux !\n");
 			MiniJeu1 game1 = new MiniJeu1();
-			return game1.initialisation();
+			return game1.lancer();
 		
 		case 2 : 
 			System.out.println("La gigantesque pièce dans laquelle vous vous trouvez est en réalité \nune fosse hérissée de pics. Un seul chemin mène aux prochaines portes : un pont branlant...\n");
