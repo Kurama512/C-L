@@ -37,9 +37,9 @@ public class Combat {
 	}
 
 	public void initialiserBestiaire() {
-		Monstre monstre1 = new Monstre("Lutin",10, 100, 10, 1, 6, 5);
-		Monstre monstre2 = new Monstre("Orc", 150, 100, 10, 1,6,5);
-		Monstre monstre3 = new Monstre("Dragon Rouge", 1500, 1000, 100, 10, 60, 50);
+		Monstre monstre1 = new Monstre("Lutin mourant",10, 100, 10, 1, 6, 5);
+		Monstre monstre2 = new Monstre("Orc", 150, 150, 10, 1,6,5);
+		Monstre monstre3 = new Monstre("Dragon Rouge", 1500, 1500, 100, 10, 60, 50);
 
 		lstMonster.add(monstre1);
 		lstMonster.add(monstre2);
@@ -49,7 +49,7 @@ public class Combat {
 	
 	public void choixMonstre(){
 		Random random=new Random();
-		int index = random.nextInt(2);
+		int index = random.nextInt(3);
 		setMonstre(lstMonster.get(index));
 		
 	}
@@ -71,6 +71,8 @@ public class Combat {
 				actionJoueur();				
 			}
 		}
+		System.out.println("PV monstre: " + monstre.getPv());
+		System.out.println("PV joueur: " + joueur.getPv());
 		System.out.println("-----------------------------------------------------------------------------");
 		}
 		while(this.joueur.getPv()>0 && this.monstre.getPv()>0);
@@ -82,11 +84,12 @@ public class Combat {
 		}
 		else
 		{
-			System.out.println("Combat remporté: lancer recompense");
+			System.out.println("Combat remporté:");
 			return true;
 		}
 	}
 	
+	//CHOIX DU JOUEUR LORS DU COMBAT
 	private Integer choixActionJoueur() {
 		Scanner scan = new Scanner(System.in);
 		Integer choix;		
@@ -105,6 +108,7 @@ public class Combat {
 		return choix;
 	}
 	
+	//LISTE DES DIFFERENTES ACTIONS DU JOUEUR EN FONCTION LIEE A CHOIX ACTION JOUEUR()
 	public void actionJoueur()
 	{
 		Integer choix = choixActionJoueur();
@@ -131,7 +135,7 @@ public class Combat {
 		}
 	}
 
-	
+	//CHOIX RANDOM PARMIS LES ATTAQUES DU MONSTRE
 	public void actionMonstre()
 	{
 		Random rand = new Random();
@@ -159,6 +163,7 @@ public class Combat {
 		}
 	}
 	
+	//CALCUL DES DEGATS DE L'ATTAQUANT
 	public int calculDegats(Object attaquant)
 	{
 		Random rand = new Random();
@@ -187,6 +192,7 @@ public class Combat {
 			
 	}
 	
+	//VERIFICATION SI LE JOUEUR OU LE MONSTRE ESQUIVE
 	public boolean testEsquiveJoueur()
 	{
 		Random rand = new Random();
@@ -206,6 +212,7 @@ public class Combat {
 		return false;
 	}
 	
+	//FONCTION PRENANT EN COMPTE L'INITIATIVE POUR SAVOIR QUI ATTAQUE EN PREMIER A CHAQUE TOUR
 	public boolean first() {
 		Integer first=this.joueur.getInitiative()-this.monstre.getInitiative()+50;
 		Random random=new Random();
