@@ -61,8 +61,7 @@ public class Partie {
 		MiniJeu mj = new MiniJeu();
 		Boolean win = mj.lauchMiniJeu();
 		if(!win){
-			Combat combat=new Combat(joueur);
-			combat.combattre();
+			this.lanceCombat(joueur);
 			}else{
 				Tresor tresor=new Tresor();
 				tresor.ouvrirTypeCoffre(2,joueur);}
