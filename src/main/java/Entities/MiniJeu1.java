@@ -17,7 +17,8 @@ public class MiniJeu1 {
 	}
 
 	public static void main(String[] args) {
-
+		
+		boolean find;
 		int direction, choix, i, j;
 
 		String[][] pont = initialisation();
@@ -55,12 +56,13 @@ public class MiniJeu1 {
 			} catch (ArrayIndexOutOfBoundsException e) {
 				System.out.println("tombe a l eau ");
 				surpont = false;
+				find=false;
 			}
 
 		}
 
 		if (surpont)
 			System.out.println("vous etes passé");
-
+			find=true;
 	}
 }
