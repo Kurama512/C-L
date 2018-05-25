@@ -18,7 +18,6 @@ public class MiniJeu3 {
 		this.essai = 8;
 		ran = new Random();
 		this.justePrix = ran.nextInt(max);
-		find = false;
 	}
 
 	public boolean lancer() {
@@ -26,7 +25,7 @@ public class MiniJeu3 {
 			choix = choixJoueur();
 
 			if (choix.equals(justePrix)) {
-				find = true;
+				return true;
 			}
 
 			if (choix > justePrix) {
@@ -37,7 +36,7 @@ public class MiniJeu3 {
 				System.out.println("Votre ambition est trop petite, revoyez la a la hausse");
 			}
 			essai--;
-			System.out.println("Il vous reste "+ essai + "essai(s)");
+			System.out.println("Il vous reste "+ essai + " essai(s)");
 
 		}
 		if (find) {
@@ -46,7 +45,7 @@ public class MiniJeu3 {
 			System.out.println("La bonne combinaison etait : "+justePrix);
 			System.out.println("Un monstre veut vous ajouter à son menu, bonne chance");
 		}
-		return find;
+		return false;
 
 	}
 
