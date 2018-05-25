@@ -41,18 +41,16 @@ public class Partie {
 		case 1: PieceVide pv=new PieceVide(); pv.generatePieceVide(joueur);break;
 		case 2: Tresor tresor=new Tresor(); tresor.ouvrirCoffre(joueur);break;
 		case 3: Combat combat=new Combat(joueur); combat.combattre();break; 
-		case 4: MiniJeu mj = new MiniJeu(); Boolean win = mj.lauchMiniJeu(); if(!win){Combat combat2=new Combat(joueur); combat2.combattre();}else{Tresor tresor2=new Tresor(); tresor2.ouvrirCoffre(joueur);} break; 
+		case 4: MiniJeu mj = new MiniJeu(); Boolean win = mj.lauchMiniJeu(); if(!win){Combat combat2=new Combat(joueur); combat2.combattre();}else{Tresor tresor2=new Tresor(); tresor2.ouvrirTypeCoffre(2,joueur);} break; 
 		case 5: Combat combat2=new Combat(joueur); combat2.combattre();break; 
-		case 6: MiniJeu mj2 = new MiniJeu(); Boolean win2 = mj2.lauchMiniJeu(); if(!win2){Combat combat4=new Combat(joueur); combat4.combattre();}else{Tresor tresor2=new Tresor(); tresor2.ouvrirCoffre(joueur);} break;
+		case 6: MiniJeu mj2 = new MiniJeu(); Boolean win2 = mj2.lauchMiniJeu(); if(!win2){Combat combat4=new Combat(joueur); combat4.combattre();}else{Tresor tresor2=new Tresor(); tresor2.ouvrirTypeCoffre(2,joueur);} break;
 		case 7: Combat combat3=new Combat(joueur); combat3.combattre();break;
 		default: Combat combat4=new Combat(joueur); combat4.combattre();break;
 		}
 	}
 
-	public boolean finPartie() {
+	public void finPartie() {
 		System.out.println("La partie est terminee");
 		System.out.println("TO DO : lancement de l'affichage du classement des meilleurs et arret du jeu.");
-		boolean gameOver=true;
-		return gameOver;
 	}
 }
