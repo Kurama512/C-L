@@ -11,10 +11,10 @@ public class Joueur {
 	private Integer score = 0;
 	private Integer pv = 150;
 	private Integer pvMax = 150;
-	private Integer esquive = 0;
-	private Integer initiative = 0;
-	private Integer defense = 0;
-	private Integer attaque = 0;
+	private Integer esquive = 2;
+	private Integer initiative = 5;
+	private Integer defense = 10;
+	private Integer attaque = 20;
 	private Armure armure;
 	private MainDroite mainDroite;
 	private MainGauche mainGauche;
