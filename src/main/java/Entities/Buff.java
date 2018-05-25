@@ -23,7 +23,11 @@ public class Buff {
 		this.attaque = attaque;
 	}
 
-
+	public String toString() {
+		return "Buff [nom=" + this.nom + ", pvMax="+ this.pvMax +", Attaque=" + this.attaque + ", defense=" + this.defense + ", initiative=" + this.initiative
+				+ ", esquive=" + this.esquive + "]";
+	}
+	
 	public String getNom() {
 		return nom;
 	}
