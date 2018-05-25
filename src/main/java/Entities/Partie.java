@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class Partie {
 	
-	
-
 	public void lanceIntro() {
 		System.out.println("Bienvenue dans le monde de 'Cachots et Lézards' !\nVous allez pénétrer dans un labyrinthe d'effroi et de folie, peuplé de monstres plus terrifiants\nles uns que les autres.\nVotre but ? La fortune... car ce lieu recelle des richesses fabuleuses, sans compter les nombreux \néquipements laissés par les malheureux aventuriers qui vous ont précédé.\nVous pourrez fuir à tout moment en emportant votre butin, mais sachez que si vous décidez de\ncontinuer, c'est peut-être la mort qui vous attend derrière la prochaine porte...\n\nPuissiez-vous ne pas périr dans les geôles de 'Cachots & Lézards' !");
 	}
