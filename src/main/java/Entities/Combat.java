@@ -57,6 +57,7 @@ public class Combat {
 	//
 	public Boolean combattre() {
 		System.out.println("un "+monstre.getNom()+" apparaît!");
+		Boolean win = false;
 		do {
 		if(this.first()) {
 			actionJoueur();
@@ -80,13 +81,15 @@ public class Combat {
 		if(joueur.getPv() <= 0)
 		{
 			System.out.println("Le heros est tombé.");
-			return false;
+			win = false;
+			
 		}
 		else
 		{
-			System.out.println("Combat remporté:");
-			return true;
-		}
+			System.out.println("Combat remporté !");
+			win = true;
+			
+		} return win;
 	}
 	
 	//CHOIX DU JOUEUR LORS DU COMBAT
