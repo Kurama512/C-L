@@ -52,6 +52,7 @@ public class Joueur {
 	
 	public void addBuff(Buff buff) {
 		this.listBuff.add(buff);
+		actualStat();
 	}
 	//GET SET
 	public String getNom() {
@@ -108,6 +109,7 @@ public class Joueur {
 
 	public void setArmure(Armure armure) {
 		this.armure = armure;
+		actualStat();
 	}
 
 	public MainDroite getMainDroite() {
@@ -116,6 +118,7 @@ public class Joueur {
 
 	public void setMainDroite(MainDroite mainDroite) {
 		this.mainDroite = mainDroite;
+		actualStat();
 	}
 
 	public MainGauche getMainGauche() {
@@ -124,6 +127,7 @@ public class Joueur {
 
 	public void setMainGauche(MainGauche mainGauche) {
 		this.mainGauche = mainGauche;
+		actualStat();
 	}
 
 
@@ -150,6 +154,7 @@ public class Joueur {
 		
 		try {
 			do {
+			System.out.println();
 			System.out.println("MENU 1\n 1-AVANCER, 2-EQUIPEMENT, 3-STATISTIQUES, 4-FUIR");
 			choix = x.nextInt();
 			}
@@ -161,19 +166,27 @@ public class Joueur {
 	}
 
 	public void afficherEquipement() {
-		//test
-		System.out.println("Voici votre equipement");
+		System.out.println("---Voici votre equipement:");
+		System.out.println("---Armure: " + armure.toString());
+		System.out.println("---Main droite: " + mainDroite.toString());
+		System.out.println("---Main gauche: " + mainGauche.toString());
 	}
 
 	public void afficherStats() {
-		this.actualStat();
+		System.out.println("------------------------------------------------");
 		System.out.println("Voici vos statistiques " + getNom() + " : ");	
 		System.out.println("PV: " + getPv() +"/" + getPvMax());	
 		System.out.println("Attaque: " + getAttaque());
 		System.out.println("Defense: " + getDefense());
 		System.out.println("Esquive: " + getEsquive());
 		System.out.println("Initiative: " + getInitiative());
-
+		System.out.println("------------------------------------------------");
+		System.out.println("Benediction/Malediction:");
+		for (Buff buff : listBuff)
+		{
+			System.out.println(buff.toString());
+		}
+		System.out.println("------------------------------------------------");
 	}
 
 }
