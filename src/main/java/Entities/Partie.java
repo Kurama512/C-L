@@ -19,9 +19,20 @@ public class Partie {
 				System.out.println("Vous etes face a " + portes + " portes. Laquelle voulez-vous emprunter ?");
 				cj = x.nextInt();
 			} catch (Exception e) {
-				System.out.println("Je n'ai pas compris, recommencez...");
-				x = new Scanner(System.in);
-				cj = x.nextInt();
+				try {
+					System.out.println("Je n'ai pas compris, recommencez...");
+					x = new Scanner(System.in);
+					cj = x.nextInt();
+				} catch (Exception e1) {
+					try {
+						System.out.println("Je n'ai pas compris, recommencez...");
+						x = new Scanner(System.in);
+						cj = x.nextInt();
+					} catch (Exception e2) {
+						System.out.println("Manifestement, vous tapez n'importe quoi, au revoir...");
+						this.finPartie();
+					}
+				}
 			} 
 		} while (cj<1 || cj>portes);
 		Integer de = (int) ((Math.random()*7)+1);
@@ -34,10 +45,14 @@ public class Partie {
 		case 5: Combat combat2=new Combat(joueur); combat2.combattre();break; 
 		case 6: MiniJeu mj2 = new MiniJeu(); Boolean win2 = mj2.lauchMiniJeu(); if(!win2){Combat combat4=new Combat(joueur); combat4.combattre();}else{Tresor tresor2=new Tresor(); tresor2.ouvrirCoffre(joueur);} break;
 		case 7: Combat combat3=new Combat(joueur); combat3.combattre();break;
+		default: Combat combat4=new Combat(joueur); combat4.combattre();break;
 		}
 	}
 
-	public void finPartie() {
-		System.out.println("La partie est terminee");	
+	public boolean finPartie() {
+		System.out.println("La partie est terminee");
+		System.out.println("TO DO : lancement de l'affichage du classement des meilleurs et arret du jeu.");
+		boolean gameOver=true;
+		return gameOver;
 	}
 }
