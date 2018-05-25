@@ -4,7 +4,7 @@ public class Armure extends Equipement {
 	
 	private String type;
 
-	public Armure(String nom, Integer bonusAtk, Integer bonusDef, Integer bonusIni, Integer bonusEsq, String type) {
+	public Armure(String nom, Integer bonusAtk, Integer bonusDef, Integer bonusIni, Integer bonusEsq) {
 		super(nom, bonusAtk, bonusDef, bonusIni, bonusEsq);
 		this.type = "Armure";
 	}
@@ -26,11 +26,6 @@ public class Armure extends Equipement {
 		return this.getNom() + " -  Attaque : "+ this.getBonusAtk()+", Défense : "+
 	this.getBonusDef()+", Esquive : "+ this.getBonusEsq() + ", type : "+ this.getType();
 	}
-
-	public Armure(String nom, Integer bonusAtk, Integer bonusDef, Integer bonusIni, Integer bonusEsq) {
-		super(nom, bonusAtk, bonusDef, bonusIni, bonusEsq);
-	}
-	
 	
 
 }
